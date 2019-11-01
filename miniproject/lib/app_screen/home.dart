@@ -1,57 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
+import'package:progress_indicators/progress_indicators.dart';
+
 class Home extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     
-    return Container (child:
-      (Column(children: <Widget>[
-     Center(child:HomeImageAsset(),
-     ),
-     Padding(
-       padding: const EdgeInsets.all(50.0),
-       child: RaisedButton(onPressed: () {},
-       color: Colors.lightBlueAccent,
-       hoverColor: Colors.transparent,
-       shape: RoundedRectangleBorder(
-         borderRadius: new BorderRadius.circular(5.0),side: BorderSide(color: Colors.lightBlueAccent)
-       ),
-       
-       child: Text('Explore',style:TextStyle(fontSize: 15.0)),
-       
-       ),
-     ) 
+    return Container (child:Column(children: <Widget>[
+         Center(child:Opacity(
+          opacity:0.8,
+          child:ButtonTheme(
+            minWidth: 150.0,
+            height: 50.0,
+             child:Padding(
+               
+               padding: const EdgeInsets.only(top: 250.0),
+               
+                 
+              child: RaisedButton(onPressed: () {},
+              
+          shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0),side:BorderSide(color: Colors.black)),
+          color: Colors.black,
+          child: Text('Start Your Journey',style:TextStyle(fontSize: 20.0,fontWeight: FontWeight.w400,color: Colors.white)),
+          ),
+               
+             ) 
 
-    ]
-    )
-    )
-    
-   ,
-    
+          ),)
+        ),
 
       
-     decoration: BoxDecoration(
-      gradient: LinearGradient(
-        colors:[Color(0xff1F3C7A),Color(0xff6D8BCA)],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        stops: [0.2,0.9]
-      )
-    ,)
-   
-  );
+        
+      Container(
+        margin: EdgeInsets.only(top:100.0),
+        child: JumpingText('Loading...',style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.w900,color:Colors.grey,decorationColor: Colors.transparent,decorationStyle:TextDecorationStyle.dashed),
+          ),
+      ),
+      
+      
+              Container(child: SizedBox(height: 12.0,width:12.0,)),
+        
+      ],)
+      ,
+      
+        decoration:BoxDecoration(
+          image: DecorationImage(image: AssetImage("images/Home.png"),fit: BoxFit.cover)
+        ),
+
+      );
+    
+    }
+    
+    }
   
-
-  }
-
-}
-class HomeImageAsset extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    AssetImage assetImage=AssetImage('images/Home1.png');
-    Image image=Image(image: assetImage ,height: 150.0,width: 150.0,);
-
-
-    return Container(child: image,margin: EdgeInsets.only(top: 150.0));
-  }
-}
