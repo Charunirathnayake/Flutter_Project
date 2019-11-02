@@ -31,8 +31,8 @@ class Home extends StatelessWidget{
       
         
       Container(
-        margin: EdgeInsets.only(top:100.0),
-        child: JumpingText('Loading...',style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.w900,color:Colors.grey,decorationColor: Colors.transparent,decorationStyle:TextDecorationStyle.dashed),
+        margin: EdgeInsets.only(top:150.0),
+        child: JumpingText('Loading...',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w900,color:Colors.white,decorationColor: Colors.transparent,decorationStyle:TextDecorationStyle.dashed),
           ),
       ),
       
