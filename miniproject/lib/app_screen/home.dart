@@ -43,6 +43,7 @@ class Home extends StatelessWidget{
       ,
       
         decoration:BoxDecoration(
+          
           image: DecorationImage(image: AssetImage("images/Home.png"),fit: BoxFit.cover)
         ),
 
@@ -51,4 +52,5 @@ class Home extends StatelessWidget{
     }
     
     }
-  
+
+    

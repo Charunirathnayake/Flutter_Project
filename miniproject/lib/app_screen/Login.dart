@@ -96,11 +96,16 @@ class Loginpage_state extends State<Loginpage> {
           child: Text('_______________________OR________________________',style:TextStyle(color: Color(0xffBA680B)),),
         ) 
         ,),
+        SizedBox(height: 10.0,),
        OutlineButton(onPressed: () {},
        child: Row(
          children: <Widget>[
-           
-         ],
+           Image_Google(),
+           SizedBox(width: 5.0,),
+           Padding(child: Container(child: Text('Continue with Google'),
+           ),
+           padding: EdgeInsets.only(left: 5.0),)
+          ],
        ),
 
        )
@@ -140,3 +145,16 @@ class Loginpage_state extends State<Loginpage> {
     );
   }
 }
+//Set Image for the button
+    class Image_Google extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+  
+     AssetImage assetimage=AssetImage('images/google.png');
+    Image image=Image(image:assetimage,height: 15.0,width: 15.0);
+    return image;
+    
+  }
+
+    }
+  
