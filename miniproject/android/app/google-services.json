@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "899549905830",
+    "firebase_url": "https://mini-project-c26a3.firebaseio.com",
+    "project_id": "mini-project-c26a3",
+    "storage_bucket": "mini-project-c26a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899549905830:android:810cf2f1d022f1b6f1c567",
+        "android_client_info": {
+          "package_name": "com.charu.miniproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899549905830-blpqef3i8961r211arkjtiqg3m2sabah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF0n_CYFQ7IutamYthHQdrQGoUtEh6PI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899549905830-blpqef3i8961r211arkjtiqg3m2sabah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
