@@ -49,14 +49,57 @@ class Loginpage_state extends State<Loginpage> {
         ),
 
         //Enter E-mail
-        buildTextField('E-mail', 'nikeshi456@gmail.com', false),
+        Center(child: Container(
+          height:40.0 ,
+          width:280.0 ,
+        child: TextField(
+          decoration: InputDecoration(
+              prefixIcon:
+               Icon(Icons.email),
+              labelText: 'E-mail',
+              hintText: 'nikeshi@gmail.com',
+              hintStyle: TextStyle(fontSize: 15.0, color: Colors.grey),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              )
+              ),
+          keyboardType: TextInputType.emailAddress,
+        )
+        ,)
+         ,),
         SizedBox(
           height: 40.0,
         ),
 
-        //Enter password
-        buildTextField('Password', 'Password', true),
-        SizedBox(
+        //Enter passwor
+         Center(
+      child: Container(
+        height: 40.0,
+        width: 280.0,
+        child: TextField(
+         obscureText: true,
+          decoration: InputDecoration(
+              prefixIcon:
+                 Icon(Icons.lock),
+              suffixIcon:
+                  IconButton(
+                      onPressed: () {
+                        //todolist
+                      },
+                      icon: Icon(Icons.visibility_off),
+                    ),
+              labelText: 'Password',
+              hintText: 'Password',
+              hintStyle: TextStyle(fontSize: 15.0, color: Colors.grey),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              )
+              ),
+          keyboardType: TextInputType.emailAddress,
+        ),
+      ),
+    ),
+  SizedBox(
           height: 40.0,
         ),
 
@@ -64,8 +107,11 @@ class Loginpage_state extends State<Loginpage> {
         Center(
           child: Container(
             child: GestureDetector(
-              child: Text('No Account yet?SignUp here',style: TextStyle(decorationStyle: TextDecorationStyle.solid,fontSize: 15.0),)
-          ,
+              child: Text(
+                'No Account yet?SignUp here',
+                style: TextStyle(
+                    decorationStyle: TextDecorationStyle.solid, fontSize: 15.0),
+              ),
               onTap: () {
                 //TODO:define ontap
               },
@@ -81,80 +127,70 @@ class Loginpage_state extends State<Loginpage> {
         Center(
           child: Container(
             child: GestureDetector(
-              child: Text('I forget my password',style: TextStyle(decorationStyle: TextDecorationStyle.solid,fontSize: 15.0),),
+              child: Text(
+                'I forget my password',
+                style: TextStyle(
+                    decorationStyle: TextDecorationStyle.solid, fontSize: 15.0),
+              ),
               onTap: () {
                 //TODO:DEFINE ONTAP
-               
               },
             ),
           ),
         ),
-        SizedBox(height: 10.0,),
+        SizedBox(
+          height: 10.0,
+        ),
 
         //line separator
-        Center(child: Container(
-          child: Text('_______________________OR________________________',style:TextStyle(color: Color(0xffBA680B)),),
-        ) 
-        ,),
-        SizedBox(height: 10.0,),
-       OutlineButton(onPressed: () {},
-       child: Row(
-         children: <Widget>[
-           Image_Google(),
-           SizedBox(width: 5.0,),
-           Padding(child: Container(child: Text('Continue with Google'),
-           ),
-           padding: EdgeInsets.only(left: 5.0),)
-          ],
-       ),
-
-       )
-       
+        Center(
+          child: Container(
+            child: Text(
+              '_______________________OR________________________',
+              style: TextStyle(color: Color(0xffBA680B)),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        //button for google signin
+        Padding(
+          padding: EdgeInsets.only(left: 20.0,right: 20.0),
+          child: OutlineButton(
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40.0),
+              side: BorderSide(color: Colors.white),
+            ),
+            child: Row(
+              children: <Widget>[
+                Image_Google(),
+                SizedBox(
+                  width: 5.0,
+                ),
+                Padding(
+                  child: Container(
+                    child: Text('Continue with Google'),
+                  ),
+                  padding: EdgeInsets.only(left: 5.0),
+                )
+              ],
+            ),
+          ),
+        )
       ]),
     );
   }
-
-  //Email & Password template
-  Widget buildTextField(String labelText, String hintText, bool secureText) {
-    return Center(
-      child: Container(
-        height: 40.0,
-        width: 280.0,
-        child: TextField(
-          obscureText: secureText,
-          decoration: InputDecoration(
-              prefixIcon:
-                  labelText == "E-mail" ? Icon(Icons.email) : Icon(Icons.lock),
-              suffixIcon: labelText == "Password"
-                  ? IconButton(
-                      onPressed: () {
-                        //todolist
-                      },
-                      icon: Icon(Icons.visibility_off),
-                    )
-                  : Container(),
-              labelText: labelText,
-              hintText: hintText,
-              hintStyle: TextStyle(fontSize: 15.0, color: Colors.grey),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              )),
-          keyboardType: TextInputType.emailAddress,
-        ),
-      ),
-    );
-  }
 }
+
+
 //Set Image for the button
-    class Image_Google extends StatelessWidget{
+class Image_Google extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-  
-     AssetImage assetimage=AssetImage('images/google.png');
-    Image image=Image(image:assetimage,height: 15.0,width: 15.0);
+    AssetImage assetimage = AssetImage('images/google.png');
+    Image image = Image(image: assetimage, height: 15.0, width: 15.0);
     return image;
-    
   }
-
-    }
-  
+}
