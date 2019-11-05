@@ -122,6 +122,19 @@ class Loginpage_state extends State<Loginpage> {
         SizedBox(
           height: 10.0,
         ),
+        //button for login
+        Padding(
+          padding: EdgeInsets.only(left: 20.0,right: 20.0),
+          child: OutlineButton(
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40.0),
+              side: BorderSide(color: Colors.white),
+            ),
+            child: Text('Login',style:TextStyle(color: Colors.black),)
+          ),
+        ),
+
 
         //Forget password
         Center(
@@ -178,7 +191,34 @@ class Loginpage_state extends State<Loginpage> {
               ],
             ),
           ),
+        ),
+        SizedBox(height: 20,),
+         Padding(
+          padding: EdgeInsets.only(left: 20.0,right: 20.0),
+          child: OutlineButton(
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40.0),
+              side: BorderSide(color: Colors.white),
+            ),
+            child: Row(
+              children: <Widget>[
+                Image_Facebook(),
+                SizedBox(
+                  width: 5.0,
+                ),
+                Padding(
+                  child: Container(
+                    child: Text('Continue with FaceBook'),
+                  ),
+                  padding: EdgeInsets.only(left: 5.0),
+                )
+              ],
+            ),
+          ),
         )
+
+
       ]),
     );
   }
@@ -191,6 +231,15 @@ class Image_Google extends StatelessWidget {
   Widget build(BuildContext context) {
     AssetImage assetimage = AssetImage('images/google.png');
     Image image = Image(image: assetimage, height: 15.0, width: 15.0);
+    return image;
+  }
+}
+//Set Image for the facebook button
+class Image_Facebook extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    AssetImage assetimage = AssetImage('images/facebook.png');
+    Image image = Image(image: assetimage, height: 20.0, width: 20.0);
     return image;
   }
 }
