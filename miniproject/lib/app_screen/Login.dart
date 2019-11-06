@@ -4,6 +4,34 @@ class LoginInterface extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: new BottomNavigationBar(
+      //  backgroundColor: Color(0xffBA680B),
+
+        items:
+       <BottomNavigationBarItem>[
+
+        new BottomNavigationBarItem(icon:Icon(Icons.filter_list),
+        backgroundColor: Color(0xffBA680B),
+        title: Text('Filters'),),
+
+        new BottomNavigationBarItem(icon: Icon(Icons.book),
+        backgroundColor: Color(0xffBA680B),
+        title: Text('Bookings')
+         ),
+
+        new BottomNavigationBarItem(icon: Icon(Icons.message),
+        
+        title: Text('Messages'),
+         ),
+
+         new BottomNavigationBarItem(icon: Icon(Icons.missed_video_call),
+         
+        title: Text('Profile'),
+         ),
+
+      ],
+
+      ),
       appBar: AppBar(
         title: Text(
           'Tour Guide',
@@ -126,10 +154,12 @@ class Loginpage_state extends State<Loginpage> {
         Padding(
           padding: EdgeInsets.only(left: 20.0,right: 20.0),
           child: OutlineButton(
+            color: Colors.blueAccent,
+            hoverColor: Color(0xffF5CA99),
             onPressed: () {},
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(40.0),
-              side: BorderSide(color: Colors.white),
+              side: BorderSide(color: Colors.black),
             ),
             child: Text('Login',style:TextStyle(color: Colors.black),)
           ),
