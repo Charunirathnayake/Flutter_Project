@@ -1,37 +1,11 @@
 import 'package:flutter/material.dart';
+import 'bottomnav.dart';
 
 class LoginInterface extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: new BottomNavigationBar(
-      //  backgroundColor: Color(0xffBA680B),
-
-        items:
-       <BottomNavigationBarItem>[
-
-        new BottomNavigationBarItem(icon:Icon(Icons.filter_list),
-        backgroundColor: Color(0xffBA680B),
-        title: Text('Filters'),),
-
-        new BottomNavigationBarItem(icon: Icon(Icons.book),
-        backgroundColor: Color(0xffBA680B),
-        title: Text('Bookings')
-         ),
-
-        new BottomNavigationBarItem(icon: Icon(Icons.message),
-        
-        title: Text('Messages'),
-         ),
-
-         new BottomNavigationBarItem(icon: Icon(Icons.missed_video_call),
-         
-        title: Text('Profile'),
-         ),
-
-      ],
-
-      ),
+      bottomNavigationBar: Bottomnavigation(),
       appBar: AppBar(
         title: Text(
           'Tour Guide',
