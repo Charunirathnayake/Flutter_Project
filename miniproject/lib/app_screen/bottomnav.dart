@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/app_screen/Login.dart';
+import 'Login.dart';
 
 class Bottomnavigation extends StatefulWidget{
   @override
@@ -10,7 +12,8 @@ class Bottomnavigation extends StatefulWidget{
  class Bottomnavigation_state extends State<Bottomnavigation>{
     int selected_page=0;
     final pageOptions=[
-      Text('item1'),Text('item2'),Text('item3'),Text('item4')
+      LoginInterface(),
+    
     ];
   @override
   Widget build(BuildContext context) {

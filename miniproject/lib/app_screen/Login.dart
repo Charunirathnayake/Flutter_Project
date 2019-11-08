@@ -1,11 +1,40 @@
 import 'package:flutter/material.dart';
 import 'bottomnav.dart';
 
+class Mytabs extends StatefulWidget{
+  @override
+  Mytabs_State createState()=> new Mytabs_State();
+}
+
+class Mytabs_State extends State<Mytabs> with SingleTickerProviderStateMixin{
+    TabController controller;
+    @override
+    void initState() { 
+      super.initState();  
+      controller=new TabController(length:4, vsync: this);
+    }
+
+   @override
+   void dispose(){
+     controller.dispose();
+     super.dispose();
+   }
+
+
+  @override
+  Widget build(BuildContext context) {
+    
+    return new Scaffold(
+
+    );
+  }
+
+}
+
 class LoginInterface extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Bottomnavigation(),
       appBar: AppBar(
         title: Text(
           'Tour Guide',
