@@ -1,40 +1,11 @@
 import 'package:flutter/material.dart';
-import 'bottomnav.dart';
 
-class Mytabs extends StatefulWidget{
-  @override
-  Mytabs_State createState()=> new Mytabs_State();
-}
-
-class Mytabs_State extends State<Mytabs> with SingleTickerProviderStateMixin{
-    TabController controller;
-    @override
-    void initState() { 
-      super.initState();  
-      controller=new TabController(length:4, vsync: this);
-    }
-
-   @override
-   void dispose(){
-     controller.dispose();
-     super.dispose();
-   }
-
-
-  @override
-  Widget build(BuildContext context) {
-    
-    return new Scaffold(
-
-    );
-  }
-
-}
-
+//sketch of the login page
 class LoginInterface extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body:Loginpage(),
       appBar: AppBar(
         title: Text(
           'Tour Guide',
@@ -42,7 +13,6 @@ class LoginInterface extends StatelessWidget {
         ),
         backgroundColor: Color(0xffBA680B),
       ),
-      body: Loginpage(),
     );
   }
 }
@@ -102,7 +72,7 @@ class Loginpage_state extends State<Loginpage> {
           height: 40.0,
         ),
 
-        //Enter passwor
+        //Enter password
          Center(
       child: Container(
         height: 40.0,
@@ -153,18 +123,19 @@ class Loginpage_state extends State<Loginpage> {
         SizedBox(
           height: 10.0,
         ),
+
         //button for login
         Padding(
           padding: EdgeInsets.only(left: 20.0,right: 20.0),
-          child: OutlineButton(
-            color: Colors.blueAccent,
+          child: RaisedButton(
+            color: Color(0xffBA680B),
             hoverColor: Color(0xffF5CA99),
             onPressed: () {},
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(40.0),
-              side: BorderSide(color: Colors.black),
+              side: BorderSide(color: Color(0xffBA680B)),
             ),
-            child: Text('Login',style:TextStyle(color: Colors.black),)
+            child: Text('Login',style:TextStyle(color: Colors.white,fontSize: 20.0),)
           ),
         ),
 
@@ -267,6 +238,7 @@ class Image_Google extends StatelessWidget {
     return image;
   }
 }
+
 //Set Image for the facebook button
 class Image_Facebook extends StatelessWidget {
   @override
