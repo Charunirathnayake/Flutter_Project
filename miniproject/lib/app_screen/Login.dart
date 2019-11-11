@@ -38,7 +38,7 @@ class Loginpage_state extends State<Loginpage> {
           ),
         ),
         SizedBox(
-          height: 40.0,
+          height: 30.0,
         ),
         Text('Login',
             style: TextStyle(
@@ -46,7 +46,7 @@ class Loginpage_state extends State<Loginpage> {
                 fontWeight: FontWeight.bold,
                 fontSize: 25.0)),
         SizedBox(
-          height: 40.0,
+          height: 30.0,
         ),
 
         //Enter E-mail
@@ -69,7 +69,7 @@ class Loginpage_state extends State<Loginpage> {
         ,)
          ,),
         SizedBox(
-          height: 40.0,
+          height: 30.0,
         ),
 
         //Enter password
@@ -101,7 +101,7 @@ class Loginpage_state extends State<Loginpage> {
       ),
     ),
   SizedBox(
-          height: 40.0,
+          height: 30.0,
         ),
 
         //Navigate Signup
@@ -111,7 +111,13 @@ class Loginpage_state extends State<Loginpage> {
               child: Text(
                 'No Account yet?SignUp here',
                 style: TextStyle(
-                    decorationStyle: TextDecorationStyle.solid, fontSize: 15.0),
+                    decoration: TextDecoration.underline,
+                    decorationStyle: TextDecorationStyle.solid, fontSize: 15.0,
+                    color:Color(0xff7B4508),
+                    fontWeight: FontWeight.bold,
+                    decorationThickness: 1.5
+                    ),
+                    
               ),
               onTap: () {
                 //TODO:define ontap
@@ -147,7 +153,10 @@ class Loginpage_state extends State<Loginpage> {
               child: Text(
                 'I forget my password',
                 style: TextStyle(
-                    decorationStyle: TextDecorationStyle.solid, fontSize: 15.0),
+                    decorationStyle: TextDecorationStyle.solid, fontSize: 15.0,
+                    color: Color(0xff7B4508),
+                    fontWeight: FontWeight.bold
+                    ),
               ),
               onTap: () {
                 //TODO:DEFINE ONTAP
