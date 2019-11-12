@@ -33,18 +33,29 @@ int _selected=0;
 void onchanged(int value){
 setState(() {
   _selected=value;
+  //TODO LIST(provide the logic to go another page)
 });
 }
+
+//create radio buttons for selections.
   List <Widget> makeradio(){
     List <Widget> list=new List<Widget>();
     list.add(
-Column(
+      Padding(child:
+      Column(
   children: <Widget>[
     Row(
       children: <Widget>[
-Text('Guide'),
+Text('Guide',style: TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 20.0
+),),
+SizedBox(
+  height: 50.0,
+  width: 25.0,
+),
     Radio(
-      value: 1,
+      value: 0,
       groupValue: _selected,
       onChanged: (int value){
         onchanged(value);
@@ -54,11 +65,15 @@ Text('Guide'),
       ],
     ),
 
+
+
     Row(
       children: <Widget>[
-Text('Travellar'),
+Text('Travellar',style: TextStyle(fontSize: 20.0,
+    fontWeight: FontWeight.bold
+),),
     Radio(
-      value: 0,
+      value: 1,
       groupValue: _selected,
       onChanged: (int value){
         onchanged(value);
@@ -70,7 +85,9 @@ Text('Travellar'),
     
   ],
 
-)
+), padding: EdgeInsets.all(50.0)
+
+       ,)
     );
     return list;
   }
@@ -78,7 +95,7 @@ Text('Travellar'),
   Widget build(BuildContext context) {
     
     return Container(
-      padding: EdgeInsets.all(32.0),
+      padding: EdgeInsets.only(top: 100.0,left: 60.0),
       child: Center(
         child: Column(
           children: makeradio()
