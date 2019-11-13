@@ -28,9 +28,22 @@ class Register extends StatefulWidget{
 }
 
 class Register_state extends State<Register>{
+
+//validation
+var formkey=GlobalKey<FormState>();
+
+
+//controll the editor
+  TextEditingController FirstController=TextEditingController();
+  TextEditingController LastController=TextEditingController();
+  TextEditingController MailController=TextEditingController();
+  TextEditingController PassController=TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Form(
+      key: formkey,
+      child:
+    Container(
       child: ListView(children: <Widget>[
         Text(
           'Your Signup will show up here.',
@@ -115,16 +128,24 @@ class Register_state extends State<Register>{
           height: 10.0,
           indent: 10.0,
           thickness: 2.0,
+          color: Color(0xffBA680B),
 
         ),
           SizedBox(
             height:20.0
           ),
+
 //firstname textfield
          Center(child: Container(
           height:40.0 ,
           width:280.0 ,
-        child: TextField(
+        child: TextFormField(
+          validator: (String value){
+            if(value.isEmpty){
+              return ("Please enter the first name");
+            }
+          },
+          controller: FirstController,
           decoration: InputDecoration(
               labelText: 'First Name',
               labelStyle: TextStyle(fontSize: 15.0,color: Colors.black),
@@ -147,8 +168,15 @@ class Register_state extends State<Register>{
          Center(child: Container(
           height:40.0 ,
           width:280.0 ,
-        child: TextField(
+        child: TextFormField(
+          validator: (String value){
+            if(value.isEmpty){
+              return ("please enter last name");
+            }
+          },
+          controller: LastController,
           decoration: InputDecoration(
+            hoverColor: Color(0xffBA680B),
               labelText: 'Last Name',
               labelStyle: TextStyle(fontSize: 15.0,color: Colors.black),
               hintText: 'Sachintha',
@@ -172,7 +200,10 @@ class Register_state extends State<Register>{
          Center(child: Container(
           height:40.0 ,
           width:280.0 ,
-        child: TextField(
+        child: TextFormField(
+          // validate with email
+
+          controller: MailController,
           decoration: InputDecoration(
               labelText: 'E-mail',
               labelStyle: TextStyle(fontSize: 15.0,color: Colors.black),
@@ -198,7 +229,8 @@ class Register_state extends State<Register>{
       child: Container(
         height: 40.0,
         width: 280.0,
-        child: TextField(
+        child: TextFormField(
+          controller: PassController,
          obscureText: true,
           decoration: InputDecoration(
               prefixIcon:
@@ -244,28 +276,50 @@ class Register_state extends State<Register>{
           ),
         ),
 
-
-  
-
-
-        
+        SizedBox(
+          height: 20.0,
+        ),
 
 
+        Row(children: <Widget>[
+            Text('Already have a account',style:TextStyle(
+          decorationStyle: TextDecorationStyle.solid, fontSize: 15.0,
+                    color: Color(0xff7B4508),
+                    fontWeight: FontWeight.bold  )
+                    ),
+
+             SizedBox(height: 10.0,),
+
+            GestureDetector(
+              child: Text(
+                'Log here',
+                style: TextStyle(
+                    decorationStyle: TextDecorationStyle.solid, fontSize: 15.0,
+                    color: Color(0xff7B4508),
+                    fontWeight: FontWeight.bold
+                    ),
+              ),
+              onTap: () {
+                //TODO:DEFINE ONTAP
+              },
+            ),
 
 
+        ],
+        ),
 
-         
+        SizedBox(
+          height: 10.0,
+        ),
+        Text('When using Tourguide you accept our Terms & conitions and privacy policy.',style:TextStyle(color: Colors.black,
+        fontWeight:FontWeight.bold,fontSize:15.0
+        )
+        )
 
-         
-         
-       
-
-
-        
-        
         ]
         )
-        );
+        )
+     ) ;
   }
 }
 
