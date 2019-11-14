@@ -282,13 +282,16 @@ var formkey=GlobalKey<FormState>();
 
 
         Row(children: <Widget>[
-            Text('Already have a account',style:TextStyle(
+          SizedBox(
+            width: 25.0,
+          ),
+            Text('Already have a account?',style:TextStyle(
           decorationStyle: TextDecorationStyle.solid, fontSize: 15.0,
                     color: Color(0xff7B4508),
                     fontWeight: FontWeight.bold  )
                     ),
 
-             SizedBox(height: 10.0,),
+             SizedBox(width: 10.0,),
 
             GestureDetector(
               child: Text(
@@ -309,12 +312,18 @@ var formkey=GlobalKey<FormState>();
         ),
 
         SizedBox(
-          height: 10.0,
+          height: 20.0,
+          width: 25.0,
         ),
-        Text('When using Tourguide you accept our Terms & conitions and privacy policy.',style:TextStyle(color: Colors.black,
+
+        Padding(child:Text('When using Tourguide you accept our Terms & conitions and privacy policy.',style:TextStyle(color: Colors.black,
         fontWeight:FontWeight.bold,fontSize:15.0
         )
-        )
+        ),
+        padding: EdgeInsets.only(right: 25.0,left: 25.0),
+        ),
+        
+        SizedBox(height: 10.0,)
 
         ]
         )
