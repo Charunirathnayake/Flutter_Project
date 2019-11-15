@@ -49,6 +49,7 @@ flutter:
     - images/Home.png
     - images/facebook.png
     - images/google.png
+    - images/drawer.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
