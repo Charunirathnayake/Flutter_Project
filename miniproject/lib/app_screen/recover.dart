@@ -44,13 +44,41 @@ class New_password_State extends State<New_password>{
   @override
   Widget build(BuildContext context) {
   
-    return Column(
+    return ListView(children: <Widget>[
+
+      Column(
+
       children: <Widget>[
-        Text('Recover Your Password'),
+          SizedBox(
+            height: 20.0,
+          ),
 
-        Text('Enter Your E-mail address and we will send you a reset password-link to your E-mail box.'),
-        //email
+//First test
+        Text('Recover Your Password',
+        style: TextStyle(
+            fontSize: 30.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
 
+        SizedBox(
+          height: 30.0,
+        ),
+
+//second test
+        Padding(
+          child:Text('Enter Your E-mail address and we will send you a reset password-link to your E-mail box.',
+          style: TextStyle(fontSize: 17.0),
+          ),
+           padding: EdgeInsets.only(left: 10.0,right: 10.0),
+      ),
+        
+       SizedBox(
+          height: 30.0,
+        ),
+   
+        //entering the mail
          Center(child: Container(
           height:40.0 ,
           width:280.0 ,
@@ -71,6 +99,10 @@ class New_password_State extends State<New_password>{
         ,)
          ,),
 
+          SizedBox(
+          height: 50.0,
+        ),
+
          Padding(
           padding: EdgeInsets.only(left: 20.0,right: 20.0),
           child: RaisedButton(
@@ -85,13 +117,12 @@ class New_password_State extends State<New_password>{
           ),
         ),
 
-
-
-
-      ],
-
-    )
-    ;
-  }
-
-}
+         SizedBox(
+          height: 10.0,
+        ),
+ ],
+  )
+     ],
+     );
+     }
+     }
