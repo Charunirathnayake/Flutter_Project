@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'gender.dart';
+//import 'package:image_picker/image_picker.dart';
+
+
 
 //create appbar
 class Profile extends StatelessWidget{
@@ -64,7 +68,7 @@ class Profile extends StatelessWidget{
           ],
         ),
       ),
-      //body: Register(),
+      body: Myprofile(),
     );
   }
 }
@@ -191,6 +195,141 @@ class CustomListTile3 extends StatelessWidget{
   }
 
 }
+
+//profile
+
+class Myprofile extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+
+    return Myprofile_State();
+  }
+
+}
+
+class Myprofile_State extends State<Myprofile>{
+  @override
+  Widget build(BuildContext context) {
+    
+    return ListView(
+      children: <Widget>[
+        Column(
+          children: <Widget>[
+            SizedBox(height: 20.0,),
+
+            //name of the content
+            Padding(padding:EdgeInsets.only(left: 12.0),
+              child:Align(
+              alignment: Alignment.topLeft,
+              child: Text('My profile',style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.bold,color: Colors.black),textAlign: TextAlign.left,),
+          ), 
+            ),
+            
+            SizedBox(height: 20.0,),
+
+              //profile pic
+         Row(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: <Widget>[
+             Align(
+              alignment: Alignment.center,
+              child: CircleAvatar(
+                backgroundColor: Color(0xffBA680B),
+                radius: 100,
+                child: ClipOval(
+                    child: SizedBox(
+                      width: 180.0,
+                      height: 180.0,
+                      child: Image.network('',fit: BoxFit.fill,),
+                         ),
+                ),
+
+              ),
+                ),
+      
+         //icon of camera
+            Padding(
+              padding: EdgeInsets.only(top: 60.0),
+              child: IconButton(icon: Icon(Icons.camera_alt), 
+              onPressed: () {},
+               iconSize: 30.0,
+                
+              ),
+            )
+       
+           ],
+         ),
+        SizedBox(
+          height: 20.0,
+        ),
+        Column(
+          children: <Widget>[
+            Text('First Name'),
+            Padding(
+              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 15.0),
+              child: Container(
+                child: TextFormField(
+                  
+                ),
+              ),
+            )
+          ],
+        ),
+
+        //lastname
+        Column(
+          children: <Widget>[
+            Text('Last Name'),
+            Padding(
+              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 15.0),
+              child: Container(
+                child: TextFormField(
+                  
+                ),
+              ),
+            )
+          ],
+        ),
+
+        //gender
+        Column(
+          children: <Widget>[
+            Text('Gender'),
+
+            SizedBox(
+          height: 10.0,
+        ),
+
+        Gen(),
+          ],
+            ),
+
+            //birthday 
+            Column(
+              children: <Widget>[
+                Text('Birthday'),
+
+                //datepicker
+              ],
+            )
+        
+        
+                 
+                
+                 ]  
+                  )
+                   
+                  ],
+                  );
+                    }
+                  
+                  }
+        
+        class Sizedbox {
+}
+          
+          
+
 
 
 
