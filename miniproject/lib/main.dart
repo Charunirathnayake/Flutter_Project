@@ -6,10 +6,11 @@ import 'package:miniproject/app_screen/interface.dart';
 import 'package:miniproject/app_screen/signup.dart';
 import 'package:miniproject/app_screen/recover.dart';
 import 'package:miniproject/app_screen/guideprofile.dart';
+import 'package:miniproject/app_screen/guideprofile2.dart';
 void main(){
   runApp(
     MaterialApp(
-      home: Profile(),
+      home: Profile2(),
       debugShowCheckedModeBanner: false,
     )
   );
