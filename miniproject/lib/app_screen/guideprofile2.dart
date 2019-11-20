@@ -264,9 +264,44 @@ class Myprofile2_State extends State<Myprofile2>{
               padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 15.0),
               child: Container(
                   height: 40,
-                ),
-              ),
+                  //Google Map
+                 ),
+            ),
+            Row(
+              children: <Widget>[
+                 Padding(
+          padding: EdgeInsets.only(left: 20.0,right: 20.0),
+          child: RaisedButton(
+            color: Color(0xffBA680B),
+            hoverColor: Color(0xffF5CA99),
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40.0),
+              side: BorderSide(color: Color(0xffBA680B)),
+            ),
+            child: Text('Back',style:TextStyle(color: Colors.white,fontSize: 20.0),)
+          ),
+        ),
+
+         Padding(
+          padding: EdgeInsets.only(left: 20.0,right: 20.0),
+          child: RaisedButton(
+            color: Color(0xffBA680B),
+            hoverColor: Color(0xffF5CA99),
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40.0),
+              side: BorderSide(color: Color(0xffBA680B)),
+            ),
+            child: Text('Next',style:TextStyle(color: Colors.white,fontSize: 20.0),)
+          ),
+        ),
+
+
+              ],
             )
+
+            
           ],
         ),
 
