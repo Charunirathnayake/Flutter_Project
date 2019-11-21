@@ -10,6 +10,9 @@ import 'package:miniproject/app_screen/guideprofile2.dart';
 void main(){
   runApp(
     MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.brown
+      ),
       home: Profile2(),
       debugShowCheckedModeBanner: false,
     )

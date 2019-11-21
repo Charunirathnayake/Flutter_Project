@@ -6,7 +6,6 @@ class Signup extends StatelessWidget{
   Widget build(BuildContext context) {
     
     return Scaffold(
-      //body:Choosepage(),
       appBar: AppBar(
         title: Text(
           'Tour Guide',

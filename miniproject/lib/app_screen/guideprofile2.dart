@@ -227,10 +227,13 @@ class Myprofile2_State extends State<Myprofile2>{
 
              Column(
           children: <Widget>[
-            Text('City or Town'),
+
+            Text('City or Town',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+            
             Padding(
-              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 15.0),
+              padding: const EdgeInsets.only(left:10.0,right: 10.0),
               child: Container(
+                height: 50.0,
                 child: TextFormField(
                   
                 ),
@@ -239,12 +242,17 @@ class Myprofile2_State extends State<Myprofile2>{
           ],
         ),
 
+        SizedBox(
+          height: 10.0,
+        ),
+
          Column(
           children: <Widget>[
-            Text('Address'),
+            Text('Address',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
             Padding(
-              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 15.0),
+              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 11.0),
               child: Container(
+                height: 40.0,
                 child: TextFormField(
                   
                 ),
@@ -259,11 +267,15 @@ class Myprofile2_State extends State<Myprofile2>{
         //location of the guide
          Column(
           children: <Widget>[
-            Text('Select location is,this is the correct.If it is not correct location,please drag the pin to correct location.'),
+
+            Padding(
+              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 15.0),
+              child: Text('Select location is,this is the correct.If it is not correct location,please drag the pin to correct location.',style: TextStyle(fontSize: 15.0),),
+            ),
             Padding(
               padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 15.0),
               child: Container(
-                  height: 40,
+                  height:70.0,
                   //Google Map
                  ),
             ),
@@ -281,6 +293,10 @@ class Myprofile2_State extends State<Myprofile2>{
             ),
             child: Text('Back',style:TextStyle(color: Colors.white,fontSize: 20.0),)
           ),
+        ),
+
+        SizedBox(
+          width: 60.0,
         ),
 
          Padding(
@@ -304,11 +320,10 @@ class Myprofile2_State extends State<Myprofile2>{
             
           ],
         ),
-
-
-
-            
-          ],
+ ],
+        ),
+        SizedBox(
+          height: 20.0,
         )
       ],
     );
