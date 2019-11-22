@@ -14,7 +14,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home: Profile3(),
+      home: Searchbox(),
       debugShowCheckedModeBanner: false,
     )
   );
