@@ -266,29 +266,12 @@ class Myprofile3_State extends State<Myprofile3>{
         ),
 
         SizedBox(
-          height: 10.0,
-        ),
-
-        Padding(
-          padding: EdgeInsets.only(left: 20.0,right: 20.0),
-          child: RaisedButton(
-            color: Color(0xffBA680B),
-            hoverColor: Color(0xffF5CA99),
-            onPressed: () {},
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(40.0),
-              side: BorderSide(color: Color(0xffBA680B)),
-            ),
-            child: Text('Back',style:TextStyle(color: Colors.white,fontSize: 20.0),)
-          ),
-        ),
-
-        SizedBox(
           height: 20.0,
         ),
 
-        Padding(
-          padding: EdgeInsets.only(left: 20.0,right: 20.0),
+        ButtonTheme(
+         height: 30.0,
+         minWidth: 250.0,
           child: RaisedButton(
             color: Color(0xffBA680B),
             hoverColor: Color(0xffF5CA99),
@@ -301,9 +284,41 @@ class Myprofile3_State extends State<Myprofile3>{
           ),
         ),
 
-        //change password
+        SizedBox(
+          height: 20.0,
+        ),
 
-        GestureDetector(
+        Divider(
+          endIndent: 10.0,
+          height: 10.0,
+          indent: 10.0,
+          thickness: 2.0,
+          color: Color(0xffBA680B),
+        ),
+    SizedBox(
+          height: 20.0,
+        ),
+
+        ButtonTheme(
+          height: 30.0,
+          child: RaisedButton(
+            color: Color(0xffBA680B),
+            hoverColor: Color(0xffF5CA99),
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40.0),
+              side: BorderSide(color: Color(0xffBA680B)),
+            ),
+            child: Text('Back',style:TextStyle(color: Colors.white,fontSize: 15.0),)
+          ),
+        ),
+
+        SizedBox(
+          height: 20.0,
+        ),
+        
+            //change password
+            GestureDetector(
               child: Text(
                 'Change Password',
                 style: TextStyle(
