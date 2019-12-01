@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/app_screen/Login.dart';
+import 'package:miniproject/app_screen/changepassword.dart';
 import 'package:miniproject/app_screen/home.dart';
 import 'package:miniproject/app_screen/search.dart';
 import 'package:miniproject/app_screen/interface.dart';
@@ -15,7 +16,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home: Displayprofile(),
+      home: Change_password(),
       debugShowCheckedModeBanner: false,
     )
   );
