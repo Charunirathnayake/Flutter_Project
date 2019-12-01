@@ -29,12 +29,37 @@ class Display_State extends State<Display>{
   @override
   Widget build(BuildContext context) {
   
-    return Column(
-     children: <Widget>[
-       _buildCoverImage(),
-       _profilename(),
+    return ListView(
+      children: <Widget>[
+         Column(
+       children: <Widget>[
+         _buildCoverImage(),
+         _profilename(),
+         _description(),
+         _passion(),
+         _price(),
+         _map(),
 
-     ], 
+         //button for contact
+         ButtonTheme(
+           height: 50.0,
+           minWidth: 250.0,
+            child: RaisedButton(
+              color: Color(0xffBA680B),
+              hoverColor: Color(0xffF5CA99),
+              onPressed: () {},
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(40.0),
+                side: BorderSide(color: Color(0xffBA680B)),
+              ),
+              child: Text('Contact me',style:TextStyle(color: Colors.white,fontSize: 20.0),)
+            ),
+          ),
+
+       ], 
+      ),
+      ],
+      
     );
   }
 
@@ -93,14 +118,65 @@ Widget _passion(){
     padding: const EdgeInsets.all(20.0),
     child: Center(
       child:Container(
-        child: Text('Interested guiding passions'),
+        
+        child: Row(
+          children: <Widget>[
+            Icon(Icons.card_travel,color: Color(0xffBA680B),),
+            Text('My passions are'),
+          ],
+        ),
         color: Colors.black,
       )
     ),
   );
 }
 
-//
+//price range
+Widget _price(){
+  return Padding(
+    padding: const EdgeInsets.all(20.0),
+    child: Center(
+      child:Container(
+        child: Row(
+          children: <Widget>[
+            Icon(Icons.attach_money,color: Color(0xffBA680B)),
+            Text('schghdsga'),
+          ],
+        ),
+        color: Colors.black,
+      )
+    ),
+  );
+}
+
+//map
+Widget _map(){
+  return Padding(
+    padding: const EdgeInsets.all(20.0),
+    child: Center(
+      child:Container(
+        child: Row(
+          children: <Widget>[
+            Icon(Icons.location_on,color: Color(0xffBA680B)),
+            Text('Where you can find me'),
+          ],
+        ),
+        color: Colors.black,
+      )
+    ),
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
