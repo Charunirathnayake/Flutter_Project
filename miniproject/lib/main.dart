@@ -10,13 +10,14 @@ import 'package:miniproject/app_screen/guideprofile.dart';
 import 'package:miniproject/app_screen/guideprofile2.dart';
 import 'package:miniproject/app_screen/guideprofile3.dart';
 import 'package:miniproject/app_screen/dispalyprofile.dart';
+import 'package:miniproject/messageview.dart';
 void main(){
   runApp(
     MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home: Change_password(),
+      home: Msgview(),
       debugShowCheckedModeBanner: false,
     )
   );
