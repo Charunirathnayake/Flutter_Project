@@ -10,14 +10,15 @@ import 'package:miniproject/app_screen/guideprofile.dart';
 import 'package:miniproject/app_screen/guideprofile2.dart';
 import 'package:miniproject/app_screen/guideprofile3.dart';
 import 'package:miniproject/app_screen/dispalyprofile.dart';
-import 'package:miniproject/messageview.dart';
+import 'package:miniproject/app_screen/messageview.dart';
+import 'package:miniproject/app_screen/filters.dart';
 void main(){
   runApp(
     MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home: Msgview(),
+      home: FilterList(),
       debugShowCheckedModeBanner: false,
     )
   );
