@@ -119,7 +119,7 @@ class FilterView_State extends State<FilterView> {
             Padding(
               padding: EdgeInsets.only(left: 20.0, right: 20.0),
               child: RaisedButton(
-                  color: Color(0xff1883F),
+                  color: Color(0xffBA680B),
                   hoverColor: Color(0xffF5CA99),
                   onPressed: () {},
                   shape: RoundedRectangleBorder(
@@ -294,8 +294,10 @@ class FilterView_State extends State<FilterView> {
 
         SizedBox(height: 20.0,),
 
+        Text('Expore your guide and enjoy the journey. ')
+
         //Explore button
-        Padding(
+      /*  Padding(
           padding: EdgeInsets.only(left: 20.0, right: 20.0),
           child: RaisedButton(
             color: Color(0xffBA680B),
@@ -310,7 +312,7 @@ class FilterView_State extends State<FilterView> {
               style: TextStyle(color: Colors.white, fontSize: 20.0),
             ),
           ),
-        ),
+        ),*/
       ],
     );
   }
