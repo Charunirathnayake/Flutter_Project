@@ -124,7 +124,7 @@ class FilterView_State extends State<FilterView> {
                   onPressed: () {},
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40.0),
-                    side: BorderSide(color: Color(0xff1883F)),
+                    side: BorderSide(color: Color(0xffBA680B)),
                   ),
                   child: Row(
                     children: <Widget>[
