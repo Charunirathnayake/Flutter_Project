@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/app_screen/changepassword.dart';
 
 //create appbar
 class Profile3 extends StatelessWidget{
@@ -329,6 +330,11 @@ class Myprofile3_State extends State<Myprofile3>{
               ),
               onTap: () {
                 //TODO:DEFINE ONTAP
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>(Change_password()),
+                        )); 
+  
               },
             )
 
