@@ -18,7 +18,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home: FilterList(),
+      home: Content(),
       debugShowCheckedModeBanner: false,
     )
   );

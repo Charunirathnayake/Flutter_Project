@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'signup.dart';
 
 //sketch of the login page
 class LoginInterface extends StatelessWidget {
@@ -120,7 +121,11 @@ class Loginpage_state extends State<Loginpage> {
                     
               ),
               onTap: () {
-                //TODO:define ontap
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>(Signup()),
+                        )); 
+  
               },
             ),
           ),
@@ -160,6 +165,7 @@ class Loginpage_state extends State<Loginpage> {
               ),
               onTap: () {
                 //TODO:DEFINE ONTAP
+
               },
             ),
           ),

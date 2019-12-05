@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/app_screen/Login.dart';
+import 'package:miniproject/app_screen/guideprofile.dart';
+import 'package:miniproject/app_screen/messages.dart';
+import 'package:miniproject/app_screen/messages.dart' as prefix0;
+import 'guideprofile.dart';
+import 'signup.dart';
 
 //create appbar
 class Content extends StatelessWidget{
@@ -59,6 +65,10 @@ SizedBox(
       groupValue: _selected,
       onChanged: (int value){
         onchanged(value);
+         Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>(Profile()),
+                        )); 
       },
     ),
 
@@ -77,6 +87,11 @@ Text('Travellar',style: TextStyle(fontSize: 20.0,
       groupValue: _selected,
       onChanged: (int value){
         onchanged(value);
+        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>(LoginInterface()),
+                        )); 
+  
       },
     )
       ],
@@ -104,4 +119,10 @@ Text('Travellar',style: TextStyle(fontSize: 20.0,
     );
   }
 
+}
+
+void navigation(value){
+  if (value==1){
+      
+  }
 }
