@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/app_screen/Login.dart';
 
 //create appbar
 class Signup extends StatelessWidget{
@@ -303,6 +304,11 @@ var formkey=GlobalKey<FormState>();
               ),
               onTap: () {
                 //TODO:DEFINE ONTAP
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>(LoginInterface()),
+                        )); 
+  
               },
             ),
 

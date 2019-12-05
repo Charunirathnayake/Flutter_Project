@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'signup.dart';
+import 'recover.dart';
 
 //sketch of the login page
 class LoginInterface extends StatelessWidget {
@@ -165,6 +166,12 @@ class Loginpage_state extends State<Loginpage> {
               ),
               onTap: () {
                 //TODO:DEFINE ONTAP
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>(Recover()),
+                        )); 
+  
+
 
               },
             ),
