@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //create appbar
-class Signup extends StatelessWidget{
+class Messages extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     
