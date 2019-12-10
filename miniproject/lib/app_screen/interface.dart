@@ -121,9 +121,3 @@ Text('Travellar',style: TextStyle(fontSize: 20.0,
   }
 
 }
-
-void navigation(value){
-  if (value==1){
-      
-  }
-}
