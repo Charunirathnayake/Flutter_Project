@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/app_screen/Login.dart';
+import 'package:miniproject/app_screen/birthday.dart';
 import 'package:miniproject/app_screen/changepassword.dart';
 import 'package:miniproject/app_screen/cur_nav_bar.dart';
 import 'package:miniproject/app_screen/home.dart';
@@ -14,6 +15,7 @@ import 'package:miniproject/app_screen/dispalyprofile.dart';
 import 'package:miniproject/app_screen/messageview.dart';
 import 'package:miniproject/app_screen/filters.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:miniproject/app_screen/birthday.dart';
 
 
 
@@ -23,7 +25,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home: BottomNavBar(),
+      home: Birthday(),
       debugShowCheckedModeBanner: false,
     )
   );
