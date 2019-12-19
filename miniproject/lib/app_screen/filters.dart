@@ -274,7 +274,7 @@ class FilterView_State extends State<FilterView> {
                         width: 20.0,
                       ),
                       Text(
-                        'Business Guide',
+                        'Nature Guide',
                         style: TextStyle(color: Colors.white, fontSize: 20.0),
                       ),
                     ],

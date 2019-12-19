@@ -25,7 +25,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home: Birth(),
+      home: Profile(),
       debugShowCheckedModeBanner: false,
     )
   );
