@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject/app_screen/auth_guide.dart';
 import 'signup.dart';
 import 'recover.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 //sketch of the login page
 class LoginInterface extends StatelessWidget {
+  LoginInterface({@required this.auth});
+  final authbase auth;
+
+
+Future <void> _signInWithGoogle()async{
+    try{
+      await auth.signInWithGoogle();
+    }
+    catch(e){
+      print(e.toString());
+    }
+  }
+
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +45,10 @@ class Loginpage extends StatefulWidget {
 }
 
 class Loginpage_state extends State<Loginpage> {
+  
+
+  TextEditingController emailcontroler=TextEditingController();
+  TextEditingController passcontroller=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,6 +78,7 @@ class Loginpage_state extends State<Loginpage> {
           height:40.0 ,
           width:280.0 ,
         child: TextField(
+          controller: emailcontroler,
           decoration: InputDecoration(
               prefixIcon:
                Icon(Icons.email),
@@ -80,6 +103,7 @@ class Loginpage_state extends State<Loginpage> {
         height: 40.0,
         width: 280.0,
         child: TextField(
+          controller: passcontroller,
          obscureText: true,
           decoration: InputDecoration(
               prefixIcon:
@@ -197,7 +221,7 @@ class Loginpage_state extends State<Loginpage> {
         Padding(
           padding: EdgeInsets.only(left: 20.0,right: 20.0),
           child: OutlineButton(
-            onPressed: () {},
+            onPressed:_signInWithGoogle(),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(40.0),
               side: BorderSide(color: Colors.white),
@@ -219,6 +243,8 @@ class Loginpage_state extends State<Loginpage> {
           ),
         ),
         SizedBox(height: 20,),
+
+        //facebook login
          Padding(
           padding: EdgeInsets.only(left: 20.0,right: 20.0),
           child: OutlineButton(

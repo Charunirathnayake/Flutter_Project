@@ -28,7 +28,7 @@ dependencies:
   progress_indicators: ^0.1.4
   loader_search_bar: ^1.0.3+3
   firebase_auth: ^0.14.0+5
-  google_sign_in: ^4.0.11
+  google_sign_in: ^4.0.7
   curved_navigation_bar: ^0.3.1
   flutter_datetime_picker: ^1.2.8
   
