@@ -133,6 +133,9 @@ class Loginpage_state extends State<Loginpage> {
               if(value.isEmpty){
                 return 'Enter Your Password';
               }
+              else {
+                return null;
+              }
             },
             controller: passcontroller,
            obscureText: _isHiddenPw,
@@ -202,6 +205,7 @@ class Loginpage_state extends State<Loginpage> {
                   setState(() {
                     _formkey.currentState.reset();
                   });
+                  print('Enter your field');
                   return;
                 }else{
                   bool res=await Auth().signInWithEmail(
@@ -356,13 +360,13 @@ class Image_Facebook extends StatelessWidget {
 
 //validate email
 String validateEmail(String value) {
-  Pattern pattern =
+  /*Pattern pattern =
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
   RegExp regex = new RegExp(pattern);
   if (!regex.hasMatch(value)) {
     return 'Enter Valid Email';
-  }
-  else if(value.isEmpty){
+  }*/
+   if(value.isEmpty){
     return 'Enter your E mail';
   }
   return null;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/app_screen/Login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 //create appbar
 class Signup extends StatelessWidget{
@@ -31,6 +32,7 @@ class Register_state extends State<Register>{
 
 //validation
 var formkey=GlobalKey<FormState>();
+  UserManagement userObj = new UserManagement();
 
 
 //controll the editor
@@ -38,6 +40,25 @@ var formkey=GlobalKey<FormState>();
   TextEditingController LastController=TextEditingController();
   TextEditingController MailController=TextEditingController();
   TextEditingController PassController=TextEditingController();
+
+  //password visibility icon changing
+  bool _isHiddenPw = true;
+  bool _isHiddenCPw = true;
+
+  void _visiblePw() {
+    setState(() {
+      _isHiddenPw = !_isHiddenPw;
+      _isHiddenCPw = _isHiddenCPw;
+    });
+  }
+
+  void _visibleCPw() {
+    setState(() {
+      _isHiddenPw = _isHiddenPw;
+      _isHiddenCPw = !_isHiddenCPw;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -147,6 +168,7 @@ var formkey=GlobalKey<FormState>();
           },
           controller: FirstController,
           decoration: InputDecoration(
+            errorStyle:  TextStyle(color: Color(0xffBA680B), fontSize: 15.0),
               labelText: 'First Name',
               labelStyle: TextStyle(fontSize: 15.0,color: Colors.black),
               hintText: 'Nipun',
@@ -176,7 +198,9 @@ var formkey=GlobalKey<FormState>();
           },
           controller: LastController,
           decoration: InputDecoration(
+            errorStyle:  TextStyle(color: Color(0xffBA680B), fontSize: 15.0),
             hoverColor: Color(0xffBA680B),
+
               labelText: 'Last Name',
               labelStyle: TextStyle(fontSize: 15.0,color: Colors.black),
               hintText: 'Sachintha',
@@ -205,6 +229,7 @@ var formkey=GlobalKey<FormState>();
 
           controller: MailController,
           decoration: InputDecoration(
+            errorStyle:  TextStyle(color: Color(0xffBA680B), fontSize: 15.0),
               labelText: 'E-mail',
               labelStyle: TextStyle(fontSize: 15.0,color: Colors.black),
               hintText: 'nipunsachintha@gmail.com',
@@ -233,6 +258,7 @@ var formkey=GlobalKey<FormState>();
           controller: PassController,
          obscureText: true,
           decoration: InputDecoration(
+           errorStyle:  TextStyle(color: Color(0xffBA680B), fontSize: 15.0), 
               prefixIcon:
                  Icon(Icons.lock),
               suffixIcon:
