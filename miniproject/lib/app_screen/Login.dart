@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/app_screen/auth_guide.dart';
+import 'package:miniproject/app_screen/search.dart';
 import 'signup.dart';
 import 'recover.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 
 
 //sketch of the login page
@@ -141,10 +143,8 @@ class Loginpage_state extends State<Loginpage> {
                    Icon(Icons.lock),
                 suffixIcon:
                     IconButton(
-                        onPressed: () {
-                          
-                        },
-                        icon: Icon(Icons.visibility_off),
+                        onPressed:_visiblePw,
+                        icon: _isHiddenPw?Icon(Icons.visibility_off):Icon(Icons.visibility),
                       ),
                 labelText: 'Password',
                 hintText: 'Password',
@@ -197,7 +197,32 @@ class Loginpage_state extends State<Loginpage> {
             child: RaisedButton(
               color: Color(0xffBA680B),
               hoverColor: Color(0xffF5CA99),
-              onPressed: () {},
+              onPressed: () async{
+                if(emailcontroler.text.isEmpty||passcontroller.text.isEmpty){
+                  setState(() {
+                    _formkey.currentState.reset();
+                  });
+                  return;
+                }else{
+                  bool res=await Auth().signInWithEmail(
+                    emailcontroler.text,passcontroller.text
+                  );
+                  if(res==true){
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>Searchbox(),
+                        ));
+
+                  }
+                  else{
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>LoginInterface(),
+                        ));
+
+                  }
+                }
+              },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(40.0),
                 side: BorderSide(color: Color(0xffBA680B)),
