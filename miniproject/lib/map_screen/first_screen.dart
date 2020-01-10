@@ -37,15 +37,30 @@ class Map_state extends State<Map> {
             CameraPosition(target: _initialPosition, zoom: 10),
         onMapCreated: onCreated,
         myLocationButtonEnabled: true,
-      )
-    ]);
+        mapType: MapType.normal,
+        compassEnabled: true,
+        markers: _makers,
+        onCameraMove: _onCameraMove,
+              ),
+              Positioned(child: FloatingActionButton(onPressed: _onAddMarkerPressed,),
+                            top: 40,
+                            right: 10,
+              
+                            )
+                          ]);
+                        }
+                      
+                        void onCreated(GoogleMapController controller) {
+                        setState((){
+                          mapController=controller;
+                        });
+                      }
+                      
+                      
+                        void _onCameraMove(CameraPosition position) {
+                }
+              
+                void _onAddMarkerPressed() {
   }
-
-  void onCreated(GoogleMapController controller) {
-  setState((){
-    mapController=controller;
-  });
-}
-
 }
 
