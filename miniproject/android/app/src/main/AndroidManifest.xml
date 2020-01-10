@@ -13,9 +13,9 @@
         android:label="miniproject"
         android:icon="@mipmap/ic_launcher">
 
-        <meta-data
+      <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAF0n_CYFQ7IutamYthHQdrQGoUtEh6PI0"/>
+            android:value="AIzaSyAF0n_CYFQ7IutamYthHQdrQGoUtEh6PI0"/> 
             
         <activity
             android:name=".MainActivity"

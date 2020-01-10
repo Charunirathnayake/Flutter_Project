@@ -32,12 +32,18 @@ dependencies:
   curved_navigation_bar: ^0.3.1
   flutter_datetime_picker: ^1.2.8
   cloud_firestore: ^0.12.10+2
-  #firebase_database: ^2.0.3
+  firebase_core: ^0.4.1+5
+  geolocator: any
+  google_maps_webservice: ^0.0.16
   rxdart: any
   google_maps_flutter: ^0.5.11+1
   geoflutterfire: ^2.0.3+2
   location: ^2.3.5
-  #google_maps_flutter: ^0.5.21+15
+  firebase_database: ^3.1.0
+  http: ^0.12.0+2
+  flutter_google_places: ^0.2.3
+  modal_progress_hud: ^0.1.3
+  
 
 
 

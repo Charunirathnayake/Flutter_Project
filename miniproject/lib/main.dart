@@ -28,7 +28,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home:LoginInterface(),
+      home:GetMap(),
       debugShowCheckedModeBanner: false,
     )
   );
