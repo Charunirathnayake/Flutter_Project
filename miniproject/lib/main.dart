@@ -19,6 +19,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:miniproject/app_screen/birthday.dart';
 import 'package:miniproject/app_screen/passion.dart';
 import 'package:miniproject/map_screen/first_screen.dart';
+import 'package:miniproject/map_screen/map_traveller.dart';
 
 
 
@@ -28,7 +29,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home:GetMap(),
+      home:GetMap_traveller(),
       debugShowCheckedModeBanner: false,
     )
   );
