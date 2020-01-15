@@ -29,7 +29,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home:GetMap_traveller(),
+      home:Profile(),
       debugShowCheckedModeBanner: false,
     )
   );

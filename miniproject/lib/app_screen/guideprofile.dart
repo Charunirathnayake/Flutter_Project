@@ -257,64 +257,219 @@ class Myprofile_State extends State<Myprofile> {
           SizedBox(
             height: 20.0,
           ),
-          Column(
-            children: <Widget>[
-              Text('First Name'),
-              Padding(
-                padding:
-                    const EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0),
-                child: Container(
-                  child: TextFormField(),
-                ),
-              )
-            ],
-          ),
 
-          //lastname
+          //firstname
           Column(
-            children: <Widget>[
-              Text('Last Name'),
-              Padding(
-                padding:
-                    const EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0),
-                child: Container(
-                  child: TextFormField(),
-                ),
-              )
-            ],
-          ),
+          children: <Widget>[
 
-          //gender
-          Column(
+            Text('Full Name',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+            
+            Padding(
+              padding: const EdgeInsets.only(left:10.0,right: 10.0),
+              child: Container(
+                height: 50.0,
+                child: TextFormField(
+                  
+                ),
+              ),
+            )
+          ],
+        ),
+
+         ] ),
+
+         SizedBox(
+           height: 10.0,
+         ),
+
+         //Adress of the guide
+Column(
+          children: <Widget>[
+            Text('Address',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+            Padding(
+              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 11.0),
+              child: Container(
+                height: 40.0,
+                child: TextFormField(
+                  
+                ),
+              ),
+            )
+          ],
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        //city or town
+        Column(
+          children: <Widget>[
+
+            Text('City or Town',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+            
+            Padding(
+              padding: const EdgeInsets.only(left:10.0,right: 10.0),
+              child: Container(
+                height: 50.0,
+                child: TextFormField(
+                  
+                ),
+              ),
+            )
+          ],
+        ),
+        
+        SizedBox(
+          height: 10.0,
+        ),
+
+        //Gender of the guide
+        Column(
             children: <Widget>[
-              Text('Gender'),
+              Text('Gender',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
               SizedBox(
                 height: 10.0,
               ),
               Gen(),
             ],
           ),
+          SizedBox(
+            height: 10.0,
+          ),
 
-          SizedBox(height: 10.0),
-
-          //birthday
+          //Age of the guide
           Column(
             children: <Widget>[
-              Text('Birthday'),
+              Text('Birthday',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+              SizedBox(height: 5.0,),
               Container(
                 child: Birth(),
               )
-
-              //datepicker
             ],
           ),
-          Column(
-            children: <Widget>[Text('Your Passion'),Container(child:Passion() ,) ],
-          )
-        ])
-      ],
+          SizedBox(height:10.0),
+
+          //Add Passion about the guide
+
+Column(
+          children: <Widget>[
+            Text('About Your Passion',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+            Padding(
+              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 11.0),
+              child: Container(
+                height: 40.0,
+                child: TextFormField(
+                  
+                ),
+              ),
+            )
+          ],
+        ),
+        SizedBox(height:10.0),
+
+        //phone number
+             Column(
+          children: <Widget>[
+
+            Text('Phone Number',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+            
+            Padding(
+              padding: const EdgeInsets.only(left:10.0,right: 10.0),
+              child: Container(
+                height: 50.0,
+                child: TextFormField(
+                  
+                ),
+              ),
+            )
+          ],
+        ),
+
+        SizedBox(
+          height: 10.0,
+        ),
+
+        //E-mail
+         Column(
+          children: <Widget>[
+
+            Text('E-mail',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+            
+            Padding(
+              padding: const EdgeInsets.only(left:10.0,right: 10.0),
+              child: Container(
+                height: 50.0,
+                child: TextFormField(
+                  
+                ),
+              ),
+            )
+          ],
+        ),
+
+        SizedBox(
+          height: 20.0,
+        ),
+
+        ButtonTheme(
+         height: 30.0,
+         minWidth: 250.0,
+          child: RaisedButton(
+            color: Color(0xffBA680B),
+            hoverColor: Color(0xffF5CA99),
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40.0),
+              side: BorderSide(color: Color(0xffBA680B)),
+            ),
+            child: Text('Submit',style:TextStyle(color: Colors.white,fontSize: 20.0),)
+          ),
+        ),
+
+        SizedBox(
+          height: 20.0,
+        ),
+
+        Divider(
+          endIndent: 10.0,
+          height: 10.0,
+          indent: 10.0,
+          thickness: 2.0,
+          color: Color(0xffBA680B),
+        ),
+    SizedBox(
+          height: 20.0,
+        ),
+        Text('Your public profile page is the way for other guides and trvavellers to get to know you.'),
+
+        /*ButtonTheme(
+          height: 30.0,
+          child: RaisedButton(
+            color: Color(0xffBA680B),
+            hoverColor: Color(0xffF5CA99),
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40.0),
+              side: BorderSide(color: Color(0xffBA680B)),
+            ),
+            child: Text('Back',style:TextStyle(color: Colors.white,fontSize: 15.0),)
+          ),
+        ),*/
+
+        SizedBox(
+          height: 20.0,
+        ),
+        
+
+
+
+       
+
+        ]
+        ,
+        
+
+      
     );
   }
 }
 
-class Sizedbox {}
