@@ -1,9 +1,15 @@
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:miniproject/app_screen/passion.dart';
 import 'gender.dart';
 import 'birthday.dart';
 import 'passion.dart';
-//import 'package:image_picker/image_picker.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart';
+import 'dart:io';
+
 
 //create appbar
 class Profile extends StatelessWidget {
@@ -192,8 +198,17 @@ class Myprofile extends StatefulWidget {
 }
 
 class Myprofile_State extends State<Myprofile> {
+  File _image;
   @override
   Widget build(BuildContext context) {
+
+Future getImage() async{
+  var image=await ImagePicker.pickImage(source: ImageSource.gallery);
+  setState(() {
+    _image=image;
+  });
+}
+
     return ListView(
       children: <Widget>[
         Column(children: <Widget>[
@@ -248,7 +263,9 @@ class Myprofile_State extends State<Myprofile> {
                 padding: EdgeInsets.only(top: 60.0),
                 child: IconButton(
                   icon: Icon(Icons.camera_alt),
-                  onPressed: () {},
+                  onPressed: () {
+                    getImage();
+                  },
                   iconSize: 30.0,
                 ),
               )
