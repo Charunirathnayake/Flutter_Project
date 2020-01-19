@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:miniproject/app_screen/passion.dart';
@@ -9,7 +8,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart';
 import 'dart:io';
-
 
 //create appbar
 class Profile extends StatelessWidget {
@@ -201,13 +199,27 @@ class Myprofile_State extends State<Myprofile> {
   File _image;
   @override
   Widget build(BuildContext context) {
+    Future getImage() async {
+      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+      setState(() {
+        _image = image;
+        print('Image path $_image');
+      });
+    }
 
-Future getImage() async{
-  var image=await ImagePicker.pickImage(source: ImageSource.gallery);
-  setState(() {
-    _image=image;
-  });
-}
+    Future uploadpic(BuildContext context) async {
+      String fileName = basename(_image.path);
+      StorageReference firebaseStorageRef =
+          FirebaseStorage.instance.ref().child(fileName);
+      StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+      StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+      setState(() {
+        print('Profile picture is uploaded.');
+        Scaffold.of(context).showSnackBar(SnackBar(
+          content: Text('Profile picture is uploaded.'),
+        ));
+      });
+    }
 
     return ListView(
       children: <Widget>[
@@ -249,10 +261,15 @@ Future getImage() async{
                     child: SizedBox(
                       width: 180.0,
                       height: 180.0,
-                      child: Image.network(
-                        '',
-                        fit: BoxFit.fill,
-                      ),
+                      child: (_image != null)
+                          ? Image.file(
+                              _image,
+                              fit: BoxFit.fill,
+                            )
+                          : Image.network(
+                              '',
+                              fit: BoxFit.fill,
+                            ),
                     ),
                   ),
                 ),
@@ -277,39 +294,40 @@ Future getImage() async{
 
           //firstname
           Column(
-          children: <Widget>[
-
-            Text('Full Name',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
-            
-            Padding(
-              padding: const EdgeInsets.only(left:10.0,right: 10.0),
-              child: Container(
-                height: 50.0,
-                child: TextFormField(
-                  
-                ),
+            children: <Widget>[
+              Text(
+                'Full Name',
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                child: Container(
+                  height: 50.0,
+                  child: TextFormField(),
+                ),
+              )
+            ],
+          ),
+        ]),
+
+        SizedBox(
+          height: 10.0,
         ),
 
-         ] ),
-
-         SizedBox(
-           height: 10.0,
-         ),
-
-         //Adress of the guide
-Column(
+        //Adress of the guide
+        Column(
           children: <Widget>[
-            Text('Address',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+            Text(
+              'Address',
+              style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+            ),
             Padding(
-              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 11.0),
+              padding:
+                  const EdgeInsets.only(left: 10.0, right: 10.0, top: 11.0),
               child: Container(
                 height: 40.0,
-                child: TextFormField(
-                  
-                ),
+                child: TextFormField(),
               ),
             )
           ],
@@ -320,82 +338,94 @@ Column(
         //city or town
         Column(
           children: <Widget>[
-
-            Text('City or Town',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
-            
+            Text(
+              'City or Town',
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+            ),
             Padding(
-              padding: const EdgeInsets.only(left:10.0,right: 10.0),
+              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
               child: Container(
                 height: 50.0,
-                child: TextFormField(
-                  
-                ),
+                child: TextFormField(),
               ),
             )
           ],
         ),
-        
+
         SizedBox(
           height: 10.0,
         ),
 
         //Gender of the guide
         Column(
-            children: <Widget>[
-              Text('Gender',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
-              SizedBox(
-                height: 10.0,
-              ),
-              Gen(),
-            ],
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-
-          //Age of the guide
-          Column(
-            children: <Widget>[
-              Text('Birthday',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
-              SizedBox(height: 5.0,),
-              Container(
-                child: Birth(),
-              )
-            ],
-          ),
-          SizedBox(height:10.0),
-
-          //Add Passion about the guide
-
-Column(
           children: <Widget>[
-            Text('About Your Passion',style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+            Text(
+              'Gender',
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Gen(),
+          ],
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+
+        //Age of the guide
+        Column(
+          children: <Widget>[
+            Text(
+              'Birthday',
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 5.0,
+            ),
+            Container(
+              child: Birth(),
+            )
+          ],
+        ),
+        SizedBox(height: 10.0),
+
+        //Add Passion about the guide
+
+        Column(
+          children: <Widget>[
+            Text(
+              'About Your Passion',
+              style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+            ),
             Padding(
-              padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 11.0),
+              padding:
+                  const EdgeInsets.only(left: 10.0, right: 10.0, top: 11.0),
               child: Container(
                 height: 40.0,
-                child: TextFormField(
-                  
-                ),
+                child: TextFormField(),
               ),
             )
           ],
         ),
-        SizedBox(height:10.0),
+        SizedBox(height: 10.0),
 
         //phone number
-             Column(
+        Column(
           children: <Widget>[
-
-            Text('Phone Number',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
-            
+            Text(
+              'Phone Number',
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+            ),
             Padding(
-              padding: const EdgeInsets.only(left:10.0,right: 10.0),
+              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
               child: Container(
                 height: 50.0,
-                child: TextFormField(
-                  
-                ),
+                child: TextFormField(),
               ),
             )
           ],
@@ -406,18 +436,18 @@ Column(
         ),
 
         //E-mail
-         Column(
+        Column(
           children: <Widget>[
-
-            Text('E-mail',textAlign: TextAlign.left,style:TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
-            
+            Text(
+              'E-mail',
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+            ),
             Padding(
-              padding: const EdgeInsets.only(left:10.0,right: 10.0),
+              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
               child: Container(
                 height: 50.0,
-                child: TextFormField(
-                  
-                ),
+                child: TextFormField(),
               ),
             )
           ],
@@ -428,18 +458,22 @@ Column(
         ),
 
         ButtonTheme(
-         height: 30.0,
-         minWidth: 250.0,
+          height: 30.0,
+          minWidth: 250.0,
           child: RaisedButton(
-            color: Color(0xffBA680B),
-            hoverColor: Color(0xffF5CA99),
-            onPressed: () {},
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(40.0),
-              side: BorderSide(color: Color(0xffBA680B)),
-            ),
-            child: Text('Submit',style:TextStyle(color: Colors.white,fontSize: 20.0),)
-          ),
+              color: Color(0xffBA680B),
+              hoverColor: Color(0xffF5CA99),
+              onPressed: () {
+                uploadpic(context);
+              },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(40.0),
+                side: BorderSide(color: Color(0xffBA680B)),
+              ),
+              child: Text(
+                'Submit',
+                style: TextStyle(color: Colors.white, fontSize: 20.0),
+              )),
         ),
 
         SizedBox(
@@ -453,10 +487,11 @@ Column(
           thickness: 2.0,
           color: Color(0xffBA680B),
         ),
-    SizedBox(
+        SizedBox(
           height: 20.0,
         ),
-        Text('Your public profile page is the way for other guides and trvavellers to get to know you.'),
+        Text(
+            'Your public profile page is the way for other guides and trvavellers to get to know you.'),
 
         /*ButtonTheme(
           height: 30.0,
@@ -475,18 +510,7 @@ Column(
         SizedBox(
           height: 20.0,
         ),
-        
-
-
-
-       
-
-        ]
-        ,
-        
-
-      
+      ],
     );
   }
 }
-
