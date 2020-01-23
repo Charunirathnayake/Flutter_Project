@@ -197,7 +197,32 @@ class Myprofile extends StatefulWidget {
 
 class Myprofile_State extends State<Myprofile> {
   File _image;
-  @override
+
+  String name,address,city,passion,phonenumber,email;
+
+  getName(name){
+    this.name=name;
+  }
+
+  getAddress(address){
+    this.address=address;
+  }
+  
+  getCity(city){
+    this.city=city;
+  }
+  getPassion(passion){
+    this.passion=passion;
+  }
+  getPhonenumber(phonenumber){
+    this.phonenumber=phonenumber;
+  }
+  getEmail(email){
+    this.email=email;
+  }
+
+  
+  @override 
   Widget build(BuildContext context) {
     Future getImage() async {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery);
