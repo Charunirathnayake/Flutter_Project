@@ -198,7 +198,8 @@ class Myprofile extends StatefulWidget {
 class Myprofile_State extends State<Myprofile> {
   File _image;
 
-  String name, address, city, passion, phonenumber, email;
+  String name, address, city, passion,email;
+  String phonenumber;
 
   getName(name) {
     this.name = name;
@@ -224,7 +225,7 @@ class Myprofile_State extends State<Myprofile> {
     this.email = email;
   }
 
-  int mygendertype;
+ int mygendertype;
   String gendervalue;
   void _handlegendertype(int value) {
     setState(() {
@@ -240,7 +241,7 @@ class Myprofile_State extends State<Myprofile> {
   }
 
   createData(){
-DocumentReference ds=Firestore.instance.collection('profiledata').document(name);
+DocumentReference ds=Firestore.instance.collection('profiledata').document(email);
 Map<String,dynamic> tasks={
   "name":name,
   "address":address,
@@ -248,7 +249,7 @@ Map<String,dynamic> tasks={
   "passion":passion,
   "phonenumber":phonenumber,
   "email":email,
-  "gendervalue":gendervalue
+ "gendervalue":gendervalue,
 
 };
 ds.setData(tasks).whenComplete((){
@@ -471,7 +472,7 @@ print('New data added.');
                       Radio(
                         value: 2,
                         groupValue: mygendertype,
-                        onChanged: _handlegendertype
+                        onChanged: _handlegendertype,
                       )
                     ],
                   )
@@ -516,7 +517,9 @@ print('New data added.');
                   const EdgeInsets.only(left: 10.0, right: 10.0, top: 11.0),
               child: Container(
                 height: 40.0,
-                child: TextFormField(),
+                child: TextFormField(
+                  onChanged: (String passion){getPassion(passion);}
+                ),
               ),
             )
           ],
@@ -535,7 +538,9 @@ print('New data added.');
               padding: const EdgeInsets.only(left: 10.0, right: 10.0),
               child: Container(
                 height: 50.0,
-                child: TextFormField(),
+                child: TextFormField(
+                  onChanged: (String phonenumber){getPhonenumber(phonenumber);}
+                ),
               ),
             )
           ],
@@ -557,7 +562,9 @@ print('New data added.');
               padding: const EdgeInsets.only(left: 10.0, right: 10.0),
               child: Container(
                 height: 50.0,
-                child: TextFormField(),
+                child: TextFormField(
+                  onChanged: (String email){getEmail(email);}
+                ),
               ),
             )
           ],
