@@ -198,31 +198,67 @@ class Myprofile extends StatefulWidget {
 class Myprofile_State extends State<Myprofile> {
   File _image;
 
-  String name,address,city,passion,phonenumber,email;
+  String name, address, city, passion, phonenumber, email;
 
-  getName(name){
-    this.name=name;
-  }
-
-  getAddress(address){
-    this.address=address;
-  }
-  
-  getCity(city){
-    this.city=city;
-  }
-  getPassion(passion){
-    this.passion=passion;
-  }
-  getPhonenumber(phonenumber){
-    this.phonenumber=phonenumber;
-  }
-  getEmail(email){
-    this.email=email;
+  getName(name) {
+    this.name = name;
   }
 
-  
-  @override 
+  getAddress(address) {
+    this.address = address;
+  }
+
+  getCity(city) {
+    this.city = city;
+  }
+
+  getPassion(passion) {
+    this.passion = passion;
+  }
+
+  getPhonenumber(phonenumber) {
+    this.phonenumber = phonenumber;
+  }
+
+  getEmail(email) {
+    this.email = email;
+  }
+
+  int mygendertype;
+  String gendervalue;
+  void _handlegendertype(int value) {
+    setState(() {
+      mygendertype = value;
+      switch (mygendertype) {
+        case 1:
+          gendervalue = 'male';
+          break;
+        case 2:
+          gendervalue = 'female';
+      }
+    });
+  }
+
+  createData(){
+DocumentReference ds=Firestore.instance.collection('profiledata').document(name);
+Map<String,dynamic> tasks={
+  "name":name,
+  "address":address,
+  "city":city,
+  "passion":passion,
+  "phonenumber":phonenumber,
+  "email":email,
+  "gendervalue":gendervalue
+
+};
+ds.setData(tasks).whenComplete((){
+print('New data added.');
+});
+
+
+  }
+
+  @override
   Widget build(BuildContext context) {
     Future getImage() async {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -329,7 +365,11 @@ class Myprofile_State extends State<Myprofile> {
                 padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                 child: Container(
                   height: 50.0,
-                  child: TextFormField(),
+                  child: TextFormField(
+                    onChanged: (String name) {
+                      getName(name);
+                    },
+                  ),
                 ),
               )
             ],
@@ -352,7 +392,11 @@ class Myprofile_State extends State<Myprofile> {
                   const EdgeInsets.only(left: 10.0, right: 10.0, top: 11.0),
               child: Container(
                 height: 40.0,
-                child: TextFormField(),
+                child: TextFormField(
+                  onChanged: (String address) {
+                    getAddress(address);
+                  },
+                ),
               ),
             )
           ],
@@ -372,7 +416,11 @@ class Myprofile_State extends State<Myprofile> {
               padding: const EdgeInsets.only(left: 10.0, right: 10.0),
               child: Container(
                 height: 50.0,
-                child: TextFormField(),
+                child: TextFormField(
+                  onChanged: (String city) {
+                    getCity(city);
+                  },
+                ),
               ),
             )
           ],
@@ -393,7 +441,44 @@ class Myprofile_State extends State<Myprofile> {
             SizedBox(
               height: 10.0,
             ),
-            Gen(),
+            Padding(
+              padding: EdgeInsets.only(right: 25.0,left: 25.0),
+              child: Row(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        'Male',
+                        style: TextStyle(
+                            //fontWeight: FontWeight.bold,
+                            fontSize: 15.0),
+                      ),
+                      Radio(
+                          value: 1,
+                          groupValue: mygendertype,
+                          onChanged: _handlegendertype),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        'Female',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          // fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      Radio(
+                        value: 2,
+                        groupValue: mygendertype,
+                        onChanged: _handlegendertype
+                      )
+                    ],
+                  )
+                ],
+              )
+            )
+
           ],
         ),
         SizedBox(
@@ -490,6 +575,7 @@ class Myprofile_State extends State<Myprofile> {
               hoverColor: Color(0xffF5CA99),
               onPressed: () {
                 uploadpic(context);
+                createData();
               },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(40.0),
