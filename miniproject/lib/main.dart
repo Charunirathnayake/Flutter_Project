@@ -3,6 +3,7 @@ import 'package:miniproject/app_screen/Login.dart';
 import 'package:miniproject/app_screen/birthday.dart';
 import 'package:miniproject/app_screen/changepassword.dart';
 import 'package:miniproject/app_screen/cur_nav_bar.dart';
+import 'package:miniproject/app_screen/cur_nav_bar_traveller.dart';
 import 'package:miniproject/app_screen/home.dart';
 import 'package:miniproject/app_screen/mainSearch.dart';
 import 'package:miniproject/app_screen/search.dart';
@@ -29,7 +30,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home:Profile(),
+      home:BottomNavBar_traveller(),
       debugShowCheckedModeBanner: false,
     )
   );

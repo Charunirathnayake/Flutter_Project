@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:miniproject/app_screen/auth_guide.dart';
-import 'package:miniproject/app_screen/cur_nav_bar.dart';
+import 'package:miniproject/app_screen/auth_traveller.dart';
 import 'package:miniproject/app_screen/search.dart';
-import 'signup.dart';
+import 'package:miniproject/app_screen/signup_traveller.dart';
 import 'recover.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 
 
 //sketch of the login page
-class LoginInterface extends StatelessWidget {
+class LoginInterface_traveller extends StatelessWidget {
   /*LoginInterface({@required this.auth});
   final authbase auth;
 
@@ -28,7 +27,7 @@ Future <void> _signInWithGoogle()async{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Loginpage(),
+      body:Loginpage_traveller(),
       appBar: AppBar(
         title: Text(
           'Tour Guide',
@@ -40,14 +39,14 @@ Future <void> _signInWithGoogle()async{
   }
 }
 
-class Loginpage extends StatefulWidget {
+class Loginpage_traveller extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return Loginpage_state();
+    return Loginpage_traveller_state();
   }
 }
 
-class Loginpage_state extends State<Loginpage> {
+class Loginpage_traveller_state extends State<Loginpage_traveller> {
   
 
   TextEditingController emailcontroler=TextEditingController();
@@ -183,7 +182,7 @@ class Loginpage_state extends State<Loginpage> {
                 onTap: () {
                   Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) =>(Signup()),
+                            MaterialPageRoute(builder: (context) =>(Signup_traveller()),
                           )); 
   
                 },
@@ -215,14 +214,14 @@ class Loginpage_state extends State<Loginpage> {
                   if(res==true){
                     Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) =>BottomNavBar(),
+                          MaterialPageRoute(builder: (context) =>Searchbox(),
                         ));
 
                   }
                   else{
                     Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) =>LoginInterface(),
+                          MaterialPageRoute(builder: (context) =>LoginInterface_traveller(),
                         ));
 
                   }

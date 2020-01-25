@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loader_search_bar/loader_search_bar.dart';
+import 'package:miniproject/app_screen/interface.dart';
 
 
 class Searchbox extends StatelessWidget{
@@ -17,7 +18,9 @@ class Searchbox extends StatelessWidget{
           },
           
           ),
-          IconButton(icon: Icon(Icons.filter_list),onPressed: (){
+          IconButton(icon: Icon(Icons.person_add),onPressed: (){
+            Navigator.pop(context);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Content()));
 
           },)
         ],

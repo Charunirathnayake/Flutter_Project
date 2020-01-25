@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:miniproject/app_screen/Login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'usermanagement_guide.dart';
+import 'package:miniproject/app_screen/Login_traveller.dart';
+import 'usermanagement_traveller.dart';
 
 //create appbar
-class Signup extends StatelessWidget {
+class Signup_traveller extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,19 +15,19 @@ class Signup extends StatelessWidget {
         ),
         backgroundColor: Color(0xffBA680B),
       ),
-      body: Register(),
+      body: Register_traveller(),
     );
   }
 }
 
-class Register extends StatefulWidget {
+class Register_traveller extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return Register_state();
+    return Register_traveller_state();
   }
 }
 
-class Register_state extends State<Register> {
+class Register_traveller_state extends State<Register_traveller> {
 //validation
   var formkey = GlobalKey<FormState>();
   UserManagement userObj = new UserManagement();
@@ -286,7 +286,7 @@ class Register_state extends State<Register> {
                       'email': this.MailController.text,
                     });
                     Navigator.pop(context);
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginInterface()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginInterface_traveller()));
                   }
                 },
                 shape: RoundedRectangleBorder(
@@ -331,7 +331,7 @@ class Register_state extends State<Register> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => (LoginInterface()),
+                        builder: (context) => (LoginInterface_traveller()),
                       ));
                 },
               ),
