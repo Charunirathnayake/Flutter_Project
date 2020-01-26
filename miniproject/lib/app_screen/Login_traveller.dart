@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/app_screen/auth_traveller.dart';
+import 'package:miniproject/app_screen/cur_nav_bar.dart';
+import 'package:miniproject/app_screen/cur_nav_bar_traveller.dart';
 import 'package:miniproject/app_screen/search.dart';
 import 'package:miniproject/app_screen/signup_traveller.dart';
 import 'recover.dart';
@@ -214,7 +216,7 @@ class Loginpage_traveller_state extends State<Loginpage_traveller> {
                   if(res==true){
                     Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) =>Searchbox(),
+                          MaterialPageRoute(builder: (context) =>BottomNavBar_traveller(),
                         ));
 
                   }
