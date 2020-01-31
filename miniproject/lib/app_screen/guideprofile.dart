@@ -196,6 +196,7 @@ class Myprofile extends StatefulWidget {
 }
 
 class Myprofile_State extends State<Myprofile> {
+  //img pass to the firestorage
   File _image;
 
   String name, address, city, passion,email;

@@ -30,7 +30,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home:BottomNavBar_traveller(),
+      home:Home(),
       debugShowCheckedModeBanner: false,
     )
   );
