@@ -21,6 +21,7 @@ import 'package:miniproject/app_screen/birthday.dart';
 import 'package:miniproject/app_screen/passion.dart';
 import 'package:miniproject/map_screen/first_screen.dart';
 import 'package:miniproject/map_screen/map_traveller.dart';
+import 'package:miniproject/post_upload/img_upload.dart';
 
 
 
@@ -30,7 +31,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home:Home(),
+      home:Upload_img(),
       debugShowCheckedModeBanner: false,
     )
   );

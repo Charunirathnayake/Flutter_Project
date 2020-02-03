@@ -25,10 +25,22 @@ class Upload_img_State extends State<Upload_img> {
     });
   }
 
+  bool validateAndsave(){
+    final form=formkey.currentState;
+    if(form.validate()){
+      form.save();
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor:Color( 0xffBA680B),
         title: Text("Upload Image"),
         centerTitle: true,
       ),
@@ -39,31 +51,47 @@ class Upload_img_State extends State<Upload_img> {
         onPressed: getImage,
         tooltip: 'Add Image',
         child: Icon(Icons.add_a_photo),
+        backgroundColor: Color( 0xffBA680B),
       ),
     );
   }
 
   Widget enableUpload() {
-    return Container(child: Form(
-      key: formkey,
-      child: Column(
-        children: <Widget>[
-          Image.file(sampleImage, height: 330.0, width: 660.0),
-          SizedBox(
-            height: 15.0,
-          ),
-          TextFormField(
-            decoration: InputDecoration(labelText: 'Description About You'),
-            validator: (value) {
-              return value.isEmpty ? 'Description is required' : null;
-            },
-            onSaved: (value) {
-              return _myvalue = value;
-            },
-          )
-        ],
-      ),
-    ),);
+    return ListView(children: <Widget>[
+       Container(child: Form(
+        key: formkey,
+        child: Column(
+          children: <Widget>[
+            Image.file(sampleImage, height: 330.0, width: 660.0),
+            SizedBox(
+              height: 15.0,
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Description About You'),
+              validator: (value) {
+                return value.isEmpty ? 'Description is required' : null;
+              },
+              onSaved: (value) {
+                return _myvalue = value;
+              },
+            ),
+            SizedBox(
+              height: 15.0,
+            ),
+            RaisedButton(onPressed: validateAndsave,
+            elevation: 10.0,
+            child: Text("Add New Post"),
+            textColor: Colors.white,
+            color: Color(0xffBA680B),
+            
+
+            )
+          ],
+        ),
+      ),),
+    ],
+          
+    );
     
   }
 }
