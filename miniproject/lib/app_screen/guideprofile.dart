@@ -293,7 +293,23 @@ print('New data added.');
       });
     }
      void saveToDatabase(url){
-       
+       DocumentReference ds=Firestore.instance.collection('profiledata').document(email);
+Map<String,dynamic> tasks={
+  "name":name,
+  "address":address,
+  "city":city,
+  "passion":passion,
+  "phonenumber":phonenumber,
+  "email":email,
+ "gendervalue":gendervalue,
+ "Image":url,
+
+};
+ds.setData(tasks).whenComplete((){
+print('New data added.');
+});
+
+
      }
 
 
@@ -600,6 +616,9 @@ print('New data added.');
               onPressed: () {
                 uploadpic(context);
                 createData();
+                Navigator.pop(context);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+
               },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(40.0),
@@ -648,4 +667,5 @@ print('New data added.');
       ],
     );
   }
+  
 }

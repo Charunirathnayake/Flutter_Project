@@ -85,6 +85,12 @@ class MainContentOfThePage extends StatefulWidget{
 
 class MainContentOfThePage_state extends State<MainContentOfThePage>{
   @override
+  void initState() {
+    
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     
     return ListView(

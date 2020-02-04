@@ -32,7 +32,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home:PostHome(),
+      home:Searchbox(),
       debugShowCheckedModeBanner: false,
     )
   );
