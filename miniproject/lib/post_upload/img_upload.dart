@@ -15,6 +15,7 @@ class Upload_img extends StatefulWidget {
 
 class Upload_img_State extends State<Upload_img> {
   File sampleImage;
+  String Url;
   final formkey = GlobalKey<FormState>();
   String _myvalue;
 
@@ -25,22 +26,60 @@ class Upload_img_State extends State<Upload_img> {
     });
   }
 
-  bool validateAndsave(){
-    final form=formkey.currentState;
-    if(form.validate()){
+  bool validateAndsave() {
+    final form = formkey.currentState;
+    if (form.validate()) {
       form.save();
       return true;
-    }
-    else{
+    } else {
       return false;
     }
+  }
+
+  Future<void> UploadStatusImage() async {
+    if (validateAndsave()) {
+      final StorageReference PostImgRef =
+          FirebaseStorage.instance.ref().child("Post Images");
+      var timeKey = DateTime.now();
+      final StorageUploadTask uploadTask =
+          PostImgRef.child(timeKey.toString() + ".jpg").putFile(sampleImage);
+      var ImageUrl = await (await uploadTask.onComplete).ref.getDownloadURL();
+      Url = ImageUrl.toString();
+      print("Image Url=" + Url);
+      saveToDatabase(Url);
+      gotouploadpage();
+    }
+  }
+
+  void saveToDatabase(Url) {
+    var dbTimeKey = DateTime.now();
+    var formatDate = DateFormat('MMM d,YYYY');
+    var formatTime = DateFormat('EEEE,hh:mm aaa');
+
+    String date = formatDate.format(dbTimeKey);
+    String time = formatTime.format(dbTimeKey);
+
+    DatabaseReference ref = FirebaseDatabase.instance.reference();
+    var data = {
+      "image": Url,
+      "description": _myvalue,
+      "date": date,
+      "time": time
+    };
+    ref.child("Posts").push().set(data);
+  }
+
+  void gotouploadpage() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return Upload_img();
+    }));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Color( 0xffBA680B),
+        backgroundColor: Color(0xffBA680B),
         title: Text("Upload Image"),
         centerTitle: true,
       ),
@@ -51,47 +90,48 @@ class Upload_img_State extends State<Upload_img> {
         onPressed: getImage,
         tooltip: 'Add Image',
         child: Icon(Icons.add_a_photo),
-        backgroundColor: Color( 0xffBA680B),
+        backgroundColor: Color(0xffBA680B),
       ),
     );
   }
 
   Widget enableUpload() {
-    return ListView(children: <Widget>[
-       Container(child: Form(
-        key: formkey,
-        child: Column(
-          children: <Widget>[
-            Image.file(sampleImage, height: 330.0, width: 660.0),
-            SizedBox(
-              height: 15.0,
+    return ListView(
+      children: <Widget>[
+        Container(
+          child: Form(
+            key: formkey,
+            child: Column(
+              children: <Widget>[
+                Image.file(sampleImage, height: 330.0, width: 660.0),
+                SizedBox(
+                  height: 15.0,
+                ),
+                TextFormField(
+                  decoration:
+                      InputDecoration(labelText: 'Description About You'),
+                  validator: (value) {
+                    return value.isEmpty ? 'Description is required' : null;
+                  },
+                  onSaved: (value) {
+                    return _myvalue = value;
+                  },
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
+                RaisedButton(
+                  onPressed: UploadStatusImage,
+                  elevation: 10.0,
+                  child: Text("Add New Post"),
+                  textColor: Colors.white,
+                  color: Color(0xffBA680B),
+                )
+              ],
             ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Description About You'),
-              validator: (value) {
-                return value.isEmpty ? 'Description is required' : null;
-              },
-              onSaved: (value) {
-                return _myvalue = value;
-              },
-            ),
-            SizedBox(
-              height: 15.0,
-            ),
-            RaisedButton(onPressed: validateAndsave,
-            elevation: 10.0,
-            child: Text("Add New Post"),
-            textColor: Colors.white,
-            color: Color(0xffBA680B),
-            
-
-            )
-          ],
+          ),
         ),
-      ),),
-    ],
-          
+      ],
     );
-    
   }
 }

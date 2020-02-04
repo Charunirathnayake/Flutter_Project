@@ -22,6 +22,7 @@ import 'package:miniproject/app_screen/passion.dart';
 import 'package:miniproject/map_screen/first_screen.dart';
 import 'package:miniproject/map_screen/map_traveller.dart';
 import 'package:miniproject/post_upload/img_upload.dart';
+import 'package:miniproject/post_upload/post_home.dart';
 
 
 
@@ -31,7 +32,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.brown
       ),
-      home:Upload_img(),
+      home:PostHome(),
       debugShowCheckedModeBanner: false,
     )
   );

@@ -198,7 +198,7 @@ class Myprofile extends StatefulWidget {
 class Myprofile_State extends State<Myprofile> {
   //img pass to the firestorage
   File _image;
-
+String url;
   String name, address, city, passion,email;
   String phonenumber;
 
@@ -260,9 +260,7 @@ print('New data added.');
 
   }
 
-  @override
-  Widget build(BuildContext context) {
-    Future getImage() async {
+  Future getImage() async {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery);
       setState(() {
         _image = image;
@@ -271,11 +269,22 @@ print('New data added.');
     }
 
     Future uploadpic(BuildContext context) async {
-      String fileName = basename(_image.path);
+     /* String fileName = basename(_image.path);*/
       StorageReference firebaseStorageRef =
-          FirebaseStorage.instance.ref().child(fileName);
-      StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
-      StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+          FirebaseStorage.instance.ref().child("fileName");
+          var timeKey=DateTime.now();
+
+     final StorageUploadTask uploadTask = firebaseStorageRef.child(timeKey.toString()+".jpg").putFile(_image);
+      
+
+      var imageUrl = await (await uploadTask.onComplete).ref.getDownloadURL();
+      url = imageUrl.toString();
+      print("Image Url=" + url);
+      saveToDatabase(url);
+      
+
+      
+      /*StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;*/
       setState(() {
         print('Profile picture is uploaded.');
         Scaffold.of(context).showSnackBar(SnackBar(
@@ -283,7 +292,14 @@ print('New data added.');
         ));
       });
     }
+     void saveToDatabase(url){
+       
+     }
 
+
+  @override
+  Widget build(BuildContext context) {
+    
     return ListView(
       children: <Widget>[
         Column(children: <Widget>[
